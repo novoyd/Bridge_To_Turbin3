@@ -8,27 +8,24 @@ const connection = new Connection("https://api.devnet.solana.com");
 const github = Buffer.from("novoyd", "utf8");
 const provider = new AnchorProvider(connection, new Wallet(keypair), { commitment: "confirmed" });
 
-// Create program with program ID from IDL
-const programId = new PublicKey(IDL.address);
-const program = new Program<WbaPrereq>(IDL, programId, provider);
+const program: Program<WbaPrereq> = new Program(IDL, provider);
 
 const enrollment_seeds = [Buffer.from("prereq"), keypair.publicKey.toBuffer()];
 const [enrollment_key, _bump] = PublicKey.findProgramAddressSync(enrollment_seeds, program.programId);
 
 (async () => {
     try {
-        const txhash = await program.methods
-            .complete(github)
-            .accounts({
-                signer: keypair.publicKey,
-                prereq: enrollment_key,
-                systemProgram: SystemProgram.programId
-            })
-            .signers([keypair])
-            .rpc();
-        console.log(`Success! Check out your TX here:
-https://explorer.solana.com/tx/${txhash}?cluster=devnet`);
+      const txhash = await program.methods
+        .complete(github)
+        .accounts({
+          signer: keypair.publicKey,
+        })
+        .signers([
+          keypair
+        ]).rpc();
+      console.log(`Success! Check out your TX here:
+  https://explorer.solana.com/tx/${txhash}?cluster=devnet`);
     } catch (e) {
-        console.error(`Oops, something went wrong: ${e}`)
+      console.error(`Oops, something went wrong: ${e}`)
     }
-})();
+  })();

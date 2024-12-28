@@ -1,0 +1,7 @@
+# Wallet files
+dev-wallet.json
+
+# General files to ignore
+node_modules
+dist
+.env
