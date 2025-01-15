@@ -1,7 +1,7 @@
 # Web3 Builders Alliance Solana Q2 2024
 
 Transaction link:  
-https://explorer.solana.com/tx/4gEvsYwwJCR9yQgD7qexVDT64UKGxJaZQDE39yNB7tL1odTR5qcGMgLm1AG6ZNATA72or6HXEzVwhzUb4W6JHCTd?cluster=devnet
+https://explorer.solana.com/tx/66xm6kEKhwZokzSB7uTab73rummAdYSo8wrwwLRXZr7goByGaTwNDHcw2ifXVw88kqXiEMfuDGrZ4v1of6RiZP61?cluster=devnet
 
 
 ## Project Overview
